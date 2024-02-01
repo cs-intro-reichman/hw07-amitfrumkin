@@ -6,8 +6,7 @@ public class HashTagTokenizer {
 
 		String hashTag = args[0];
 		String []dictionary = readDictionary("dictionary.txt");
-		existInDictionary(hashTag, dictionary);
-		System.out.println(existInDictionary(hashTag, dictionary));
+		breakHashTag(hashTag, dictionary);
 
 	}
 
@@ -49,10 +48,28 @@ public class HashTagTokenizer {
         }
  
         int N = hashtag.length();
+		String hashtagLowCase = hashtag.toLowerCase() ;
 
         for (int i = 1; i <= N; i++) {
+
+				if (existInDictionary(hashtagLowCase.substring(0,i),dictionary)){
+					String newWord = hashtagLowCase.substring(0,i) ;
+					System.out.println (newWord);
+					String restWord =  hashtagLowCase.substring(i);
+					 if (existInDictionary(restWord, dictionary)) {
+						breakHashTag(restWord,dictionary);
+					 }
+					
+					
+				}
+				
+			 			 	
 		
         }
+			
+		
+				
+				
     }
 
 }
