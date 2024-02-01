@@ -56,10 +56,7 @@ public class HashTagTokenizer {
 					String newWord = hashtagLowCase.substring(0,i) ;
 					System.out.println (newWord);
 					String restWord =  hashtagLowCase.substring(i);
-					 if (existInDictionary(restWord, dictionary)) {
-						breakHashTag(restWord,dictionary);
-					 }
-					
+					breakHashTag(restWord,dictionary);
 					
 				}
 				
