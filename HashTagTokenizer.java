@@ -6,7 +6,9 @@ public class HashTagTokenizer {
 
 		String hashTag = args[0];
 		String []dictionary = readDictionary("dictionary.txt");
-		breakHashTag(hashTag, dictionary);
+		existInDictionary(hashTag, dictionary);
+		System.out.println(existInDictionary(hashTag, dictionary));
+
 	}
 
 	public static String[] readDictionary(String fileName) {
@@ -14,13 +16,29 @@ public class HashTagTokenizer {
 
 		In in = new In(fileName);
 
-		// Your code here
+		for (int i = 0; i < 3000; i++) {
+			dictionary [i] = in.readLine() ;
+		}
 
 		return dictionary;
 	}
 
+	/*public static void print(String[] arr){
+		for (int i = 0; i < arr.length+1; i++) {
+			System.out.println(arr[i]);
+		}
+
+	}*/
+
 	public static boolean existInDictionary(String word, String []dictionary) {
-		// Your code here
+
+		for (int i = 0; i < 3000; i++) {
+			if(dictionary [i].equals(word))
+				return true ; 
+			
+		}
+		return false;
+	
 	}
 
 	public static void breakHashTag(String hashtag, String[] dictionary) {
