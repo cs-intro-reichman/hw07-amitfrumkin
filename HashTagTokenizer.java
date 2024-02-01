@@ -55,11 +55,12 @@ public class HashTagTokenizer {
 				if (existInDictionary(hashtagLowCase.substring(0,i),dictionary)){
 					String newWord = hashtagLowCase.substring(0,i) ;
 					System.out.println (newWord);
-					String restWord =  hashtagLowCase.substring(i);
+					String restWord = hashtagLowCase.substring(i);
 					breakHashTag(restWord,dictionary);
+					break;
 					
 				}
-				
+					
 			 			 	
 		
         }
