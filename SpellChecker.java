@@ -69,7 +69,27 @@ public class SpellChecker {
 			}
 
 		}
-		return mostSimillar ; 
+		if(levenshtein(wordLow,mostSimillar)<= threshold){
+			return mostSimillar ; 
+		}
+		else {
+			return word ; 
+		}
 	}
+
+	/*public static String spellChecker(String word, int threshold, String[] dictionary) {
+
+		String wordLow = word.toLowerCase() ;
+		int minDis = levenshtein(wordLow.dictionary[0]); 
+		int minIndex =  0; 
+
+		for (int i = 0; i < 3000 ; i++) {
+			if(levenshtein(wordLow.dictionary[i]) < min ){
+				minDis = levenshtein(wordLow.dictionary[i]);
+				minIndex = i;
+			}
+		}
+		if (min <= threshold)
+			return dictionary[i] ; */
 }
 
