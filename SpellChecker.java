@@ -3,15 +3,11 @@ public class SpellChecker {
 
 
 	public static void main(String[] args) {
-		String word1 = args[0];
-		String word2 = args[1];
-		/*int threshold = Integer.parseInt(args[1]);*/
-		int distance = levenshtein(word1,word2); 
-		System.out.println("Levenshtein distance between " + word1 + " and " + word2 + " is: " + distance);
-
+		String word = args[0];
+		int threshold = Integer.parseInt(args[1]);
 		String[] dictionary = readDictionary("dictionary.txt");
-		/*String correction = spellChecker(word, threshold, dictionary);*/
-		/*System.out.println(correction);*/ 
+		String correction = spellChecker(word, threshold, dictionary);
+		System.out.println(correction); 
 	}
 
 	public static String tail(String str) {
@@ -53,13 +49,27 @@ public class SpellChecker {
 
 		In in = new In(fileName);
 
-		// Your code here
+		for (int i = 0; i < 3000; i++) {
+			dictionary [i] = in.readLine() ;
+		}
 
 		return dictionary;
 	}
 
-	/*public static String spellChecker(String word, int threshold, String[] dictionary) {
-		return ; 
-	}*/
+	public static String spellChecker(String word, int threshold, String[] dictionary) {
 
+		String wordLow = word.toLowerCase() ;
+		String mostSimillar = dictionary[0] ;
+
+
+		for (int i = 0; i < 3000 ; i++) {
+			int distance = levenshtein(dictionary[i],wordLow);
+			if (distance <= threshold && distance < levenshtein(wordLow,mostSimillar) ){
+				mostSimillar = dictionary[i];
+			}
+
+		}
+		return mostSimillar ; 
+	}
 }
+
